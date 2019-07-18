@@ -38,9 +38,9 @@ public class MultasDAO
         
         
         
-        String Query= "INSERT INTO multas SET id_conductor =(SELECT id_conductor from conductor,usuarios where usuarios.id_usuarios=(SELECT id_usuarios FROM usuarios WHERE dni = '"+dniconductor+"' LIMIT 1)),id_policia = (SELECT id_policia FROM policia WHERE cod_cip = '"+codigocip+"' LIMIT 1), id_codigo_multa = (SELECT id_codigo_multa FROM codigo_multa WHERE cod_falta = '"+codigomulta+"' LIMIT 1),id_ubicacion = '"+ubicacion+"',fecha = '"+fecha+"',estado = 'd',id_vehiculo = (SELECT id_vehiculo FROM vehiculo WHERE placa = '"+placa+"' LIMIT 1),direccion = '"+direccion+"', obs_conductor = '"+observacionconductor+"',obs_policia = '"+observacionpolicia+"'";
+        String Query= "INSERT INTO multas SET id_conductor = (SELECT id_conductor from conductor, usuarios where usuarios.id_usuarios=(SELECT id_usuarios FROM usuarios WHERE dni = '"+dniconductor+"' LIMIT 1) LIMIT 1),id_policia = (SELECT id_policia FROM policia WHERE cod_cip = '"+codigocip+"' LIMIT 1), id_codigo_multa = (SELECT id_codigo_multa FROM codigo_multa WHERE cod_falta = '"+codigomulta+"' LIMIT 1),id_ubicacion = '"+ubicacion+"',fecha = '"+fecha+"',estado = 'd',id_vehiculo = (SELECT id_vehiculo FROM vehiculo WHERE placa = '"+placa+"' LIMIT 1),direccion = '"+direccion+"', obs_conductor = '"+observacionconductor+"',obs_policia = '"+observacionpolicia+"'";
         
-        System.out.println(Query);
+        //System.out.println(Query);
         
         try{
             currentCon=ConnectionManager.getConnection();

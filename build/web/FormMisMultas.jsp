@@ -1,0 +1,28 @@
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ver Mis Multas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estilo.css" type="text/css" media="all">
+    </head>
+    <body>
+        <form id="formulariomismultas" class="formulario" action="VerMisMultas" method="POST">
+            <h1>Ver Mis Multas</h1>
+            <div>
+                <label for="codfalta">Escriba su DNI:</label>
+                <input type="number" id="dni" name="dni" placeholder="Escribe su DNI"/>
+            </div>
+            <div class="registrarborrar">
+                <button id="registrarmismultas" type="submit">Consultar
+                </button>
+            </div>
+        </form>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
+

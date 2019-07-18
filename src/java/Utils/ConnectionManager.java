@@ -20,7 +20,7 @@ import java.util.*;
 
 public class ConnectionManager {
 
-    private static String url = "jdbc:mysql://localhost/new_multas";
+    private static String url = "jdbc:mysql://localhost/multasnew";
     private static String user = "root";
     private static String password = "";
     private static Connection conn;

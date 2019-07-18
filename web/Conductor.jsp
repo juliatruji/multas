@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Ejemplo
-    Created on : 08-oct-2018, 16:51:21
-    Author     : Omar V.
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Models.ConductorDTO"%>
 <!DOCTYPE html>

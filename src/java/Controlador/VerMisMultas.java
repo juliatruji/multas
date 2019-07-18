@@ -44,17 +44,19 @@ public class VerMisMultas extends HttpServlet {
             
             MisMultasDTO[] datoscompletos = MisMultasDAO.getMisdatos(mismultas);
             
-            if(datoscompletos.length > 0)
+            if(datoscompletos != null)
             {
                 HttpSession session = request.getSession(true);
 
                 session.setAttribute("mismultas", datoscompletos);
                 response.sendRedirect("MisMultas.jsp");
             }
+        
             else
             {
-                System.out.println("cuando registro es 0");
-                response.sendRedirect("MisMultas.jsp");
+                //response.sendRedirect("JspInvalidLogin.jsp");
+                response.setContentType("text/plain");
+                response.getWriter().write("error");
             }
             
         }

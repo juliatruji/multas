@@ -48,9 +48,7 @@ public class RegistroMultas extends HttpServlet {
             multa.setUbicacion(request.getParameter("ubicacion"));
             multa.setObservacionesconductor(request.getParameter("observacionesconductor"));
             multa.setObservacionespolicias(request.getParameter("observacionespolicias"));
-            
-           
-            
+            System.out.println("aaaaaaa"+multa.getDni());
             int registrovalid = MultasDAO.Register(multa);
             
             if(registrovalid==1)
