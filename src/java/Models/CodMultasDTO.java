@@ -13,6 +13,14 @@ public class CodMultasDTO
 {
     private int montouit,puntos;
     private String codfaltas,descripcion,clasificacion,descuento,categorialicencia,medidapreventiva,sancion;
+
+    public String getCategorialicencia() {
+        return categorialicencia;
+    }
+
+    public void setCategorialicencia(String categorialicencia) {
+        this.categorialicencia = categorialicencia;
+    }
     public String getCodfaltas()
     {
         return codfaltas;

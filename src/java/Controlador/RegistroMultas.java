@@ -48,25 +48,27 @@ public class RegistroMultas extends HttpServlet {
             multa.setUbicacion(request.getParameter("ubicacion"));
             multa.setObservacionesconductor(request.getParameter("observacionesconductor"));
             multa.setObservacionespolicias(request.getParameter("observacionespolicias"));
-            System.out.println("aaaaaaa"+multa.getDni());
+            System.out.println("aaaaaaa" + multa.getDni());
             int registrovalid = MultasDAO.Register(multa);
-            
-            if(registrovalid==1)
-            {
-                HttpSession session = request.getSession(true);
 
-                session.setAttribute("multa", multa);
-                response.sendRedirect("Multa.jsp");
-            }
-            else
+            if (registrovalid == 1) {
+                response.setContentType("text/plain");
+                response.getWriter().write("ok");
+            } else if (registrovalid == 2) // error de dni
             {
-                System.out.println("cuando registro es 0");
-                response.sendRedirect("Multa.jsp");
+                response.setContentType("text/plain");
+                response.getWriter().write("error dni");
+            } else if (registrovalid == 3) // error de cip
+            {
+                response.setContentType("text/plain");
+                response.getWriter().write("error cip");
+            } else if (registrovalid == 4) // error de placa
+            {
+                response.setContentType("text/plain");
+                response.getWriter().write("error placa");
             }
-            
-        }
-        catch(Throwable theException)
-        {
+
+        } catch (Throwable theException) {
             System.out.println(theException);
         }
     }

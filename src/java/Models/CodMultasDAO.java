@@ -12,6 +12,7 @@ package Models;
  */
 import static Models.CodMultasDAO.currentCon;
 import Models.CodMultasDTO;
+import static Models.PoliciaDAO.currentCon;
 import Utils.ConnectionManager;
 import java.text.*;
 import java.util.*;
@@ -25,6 +26,8 @@ public class CodMultasDAO
     public static int Register(CodMultasDTO bean){
         Statement stmt=null;
         Statement stmt2=null;
+        Statement stmtcodmultas=null;
+        ResultSet rscodmultas = null;
         int resultado=0;
         String clasificacion = bean.getClasificacion();
         String codfaltas = bean.getCodfaltas();
@@ -36,18 +39,29 @@ public class CodMultasDAO
         int puntos = bean.getPuntos();
         
         
-        
+        String Querycodmultas ="SELECT * FROM codigo_multa WHERE cod_falta = '"+codfaltas+"' ";
         String Query="INSERT INTO codigo_multa SET id_sancion = '"+sancion+"', id_medida_preventiva = '"+medidapreventiva+"',cod_falta = '"+codfaltas+"',descripcion = '"+descripcion+"',clasificacion = '"+clasificacion+"',monto_uit = '"+montouit+"', descuento = '"+descuento+"',puntos = '"+puntos+"'";
         
-        System.out.println(Query);
+        //System.out.println(Query);
+        //System.out.println("hola");
         
         try{
             currentCon=ConnectionManager.getConnection();
-            stmt=currentCon.createStatement();
-            stmt2=currentCon.createStatement();
-            stmt.executeUpdate(Query);
-            resultado=1;
-            
+            stmtcodmultas=currentCon.createStatement();
+            rscodmultas = stmtcodmultas.executeQuery(Querycodmultas);
+//System.out.println("hola2");
+            if (rscodmultas.next()) {
+                    resultado=2;
+                    System.out.println("insertar result 2" );
+            }
+            else {
+                stmt=currentCon.createStatement();
+                stmt2=currentCon.createStatement();
+                stmt.executeUpdate(Query);
+                resultado=1;
+                System.out.println("insertar result 1" );
+            }
+
         }
         catch(Exception ex){
             System.out.println("insertar fallido" + ex);

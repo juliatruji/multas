@@ -12,13 +12,14 @@ package Models;
 public class VehiculosDTO
 {
     
-    private String marca,modelo, color, placa,dni;
+    private String modelo, color, placa,dni;
+    private int marca;
 
-    public String getMarca() {
+    public int getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
+    public void setMarca(int marca) {
         this.marca = marca;
     }
 

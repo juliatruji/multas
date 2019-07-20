@@ -23,6 +23,11 @@ public class PoliciaDAO
     public static int Register(PoliciaDTO bean){
         Statement stmt=null;
         Statement stmt2=null;
+        Statement stmtdni=null;
+        Statement stmtalias=null;
+        ResultSet rsdni = null;
+        ResultSet rsalias = null;
+        
         int resultado=0;
         String nombres = bean.getNombres();
         String apellidos = bean.getApellidos();
@@ -31,6 +36,8 @@ public class PoliciaDAO
         String alias = bean.getAlias();
         String password = bean.getPassword();
         
+        String Querydni ="SELECT * FROM usuarios WHERE dni = '"+dni+"' ";
+        String Queryalias ="SELECT * FROM usuarios WHERE alias = '"+alias+"' ";
         
         String Query= "INSERT INTO `usuarios`(`nombre`, `apellidos`, `dni`, `alias`, `password`,`id_grupo_usuarios`) VALUES ('"
                 +nombres+"','"+apellidos+"','"+dni+"','"+alias+"','"+password+"',2)";
@@ -39,16 +46,29 @@ public class PoliciaDAO
           
         try{
             currentCon=ConnectionManager.getConnection();
-            stmt=currentCon.createStatement();
-            stmt2=currentCon.createStatement();
-            stmt.executeUpdate(Query);
-            stmt2.executeUpdate(Query2);
-            resultado=1;
+            stmtdni=currentCon.createStatement();
+            rsdni = stmtdni.executeQuery(Querydni);
             
+            stmtalias=currentCon.createStatement();
+            rsalias = stmtalias.executeQuery(Queryalias);
+
+            if (rsdni.next()) {
+                    resultado=2;
+            }
+            else if (rsalias.next()) {
+                    resultado=3;
+            }
+            else {
+                stmt=currentCon.createStatement();
+                stmt2=currentCon.createStatement();
+                stmt.executeUpdate(Query);
+                stmt2.executeUpdate(Query2);
+                resultado=1;
+            }
+
         }
         catch(Exception ex){
             System.out.println("insertar fallido" + ex);
-            
         }
         
         finally{

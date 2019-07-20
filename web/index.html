@@ -26,8 +26,6 @@
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="./assets/css/util.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/main.css">
-	<link rel="stylesheet" type="text/css" href="./assets/css/toast.css">
-        
 	<!--===============================================================================================-->
 </head>
 
@@ -41,7 +39,8 @@
 					</span></a>
 				<div class="navbar-collapse collapse" id="navbarNavAltMarkup" style="">
 					<div class="navbar-nav">
-						<h5 class="nav-item nav-link active" href="/">Multas de Tránsito <span class="sr-only">(current)</span></h5>
+						<h5 class="nav-item nav-link active" href="/">Multas de Tránsito <span
+								class="sr-only">(current)</span></h5>
 						<a class="nav-item nav-link" href="#" style="display: none;">Acceder</a>
 
 
@@ -69,7 +68,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate="Ingresa tu DNI">
-						<input id="dni" class="input100 dniprincipal" type="number" name="dni" placeholder="DNI">
+						<input id="dniprincipal" class="input100 dniprincipal" type="number" name="dni" placeholder="DNI">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
@@ -119,8 +118,11 @@
         <script>
                         function sendAjax() {
                             event.preventDefault();
+                            if(!validarForm()) {
+                                return;
+                            }
                             var datos = new Object();
-                            datos.dni = $('#dni').val();
+                            datos.dni = $('#dniprincipal').val();
                             $.ajax({
                                 method: "POST",
                                 url: "VerMisMultas",

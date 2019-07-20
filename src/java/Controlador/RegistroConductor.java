@@ -15,11 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-/**
- *
- * @author LAB-USR-CAQP-C0206
- */
 @WebServlet(name = "RegistroConductor", urlPatterns = {"/RegistroConductor"})
 public class RegistroConductor extends HttpServlet {
 
@@ -55,10 +50,15 @@ public class RegistroConductor extends HttpServlet {
                 session.setAttribute("conductor", conductor);
                 response.sendRedirect("Conductor.jsp");
             }
-            else
+            else if (registrovalid==2) // error de dni
             {
-                System.out.println("cuando registro es 0");
-                response.sendRedirect("Conductor.jsp");
+                response.setContentType("text/plain");
+                response.getWriter().write("error dni");
+            }
+            else if (registrovalid==3) // error de nlicencia
+            {
+                response.setContentType("text/plain");
+                response.getWriter().write("error licencia");
             }
             
         }

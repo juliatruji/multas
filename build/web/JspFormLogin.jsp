@@ -79,12 +79,12 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate="Ingresa tu Usuario">
-						<input class="input100" id="alias" type="text" name="alias" placeholder="Usuario">
+						<input class="input100" id="idusuario" type="text" name="alias" placeholder="Usuario">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Ingresa tu Contraseña">
-						<input class="input100" id="password" type="password" name="password" placeholder="Contraseña">
+						<input class="input100" id="idcontrasena" type="password" name="password" placeholder="Contraseña">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
@@ -131,14 +131,16 @@
 	<script src="./assets/vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 	<script src="./assets/js/main.js"></script>
-        <script src="./assets/js/toast.js"></script>
         
         <script>
                         function sendAjax() {
                             event.preventDefault();
+                            if(!validarForm()) {
+                                return;
+                            }
                             var datos = new Object();
-                            datos.usuario = $('#alias').val();
-                            datos.contrasena = $('#password').val();
+                            datos.usuario = $('#idusuario').val();
+                            datos.contrasena = $('#idcontrasena').val();
                             $.ajax({
                                 method: "POST",
                                 url: "LoginUserController",

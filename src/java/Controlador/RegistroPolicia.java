@@ -48,17 +48,21 @@ public class RegistroPolicia extends HttpServlet {
             
             int registrovalid = PoliciaDAO.Register(policia);
             
-            if(registrovalid==1)
+            if(registrovalid==1) // ok
             {
-                HttpSession session = request.getSession(true);
-
-                session.setAttribute("policia", policia);
-                response.sendRedirect("Policia.jsp");
+                ///HttpSession session = request.getSession(true);
+                //session.setAttribute("policia", policia);
+                //response.sendRedirect("Policia.jsp");
             }
-            else
+            else if (registrovalid==2) // error de dni
             {
-                System.out.println("cuando registro es 0");
-                response.sendRedirect("Policia.jsp");
+                response.setContentType("text/plain");
+                response.getWriter().write("error dni");
+            }
+            else if (registrovalid==3) // error de alias
+            {
+                response.setContentType("text/plain");
+                response.getWriter().write("error alias");
             }
             
         }

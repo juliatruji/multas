@@ -37,32 +37,32 @@ public class RegistroVehiculos extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             VehiculosDTO vehiculo = new VehiculosDTO();
-            vehiculo.setMarca(request.getParameter("marca"));
+            vehiculo.setMarca(Integer.parseInt(request.getParameter("marca")));
             vehiculo.setModelo(request.getParameter("modelo"));
             vehiculo.setColor(request.getParameter("color"));
             vehiculo.setPlaca(request.getParameter("placa"));
             vehiculo.setDni(request.getParameter("dnipropietario"));
 
-           
-            
             int registrovalid = VehiculosDAO.Register(vehiculo);
-            
-            if(registrovalid==1)
-            {
-                HttpSession session = request.getSession(true);
 
-                session.setAttribute("vehiculo", vehiculo);
-                response.sendRedirect("Vehiculo.jsp");
-            }
-            else
+            if (registrovalid == 1) // ok
             {
-                System.out.println("cuando registro es 0");
-                response.sendRedirect("Vehiculo.jsp");
+                //HttpSession session = request.getSession(true);
+                //session.setAttribute("policia", policia);
+                //response.sendRedirect("Policia.jsp");
+                response.setContentType("text/plain");
+                response.getWriter().write("ok");
+            } else if (registrovalid == 2) // error de dni no existe
+            {
+                response.setContentType("text/plain");
+                response.getWriter().write("error dni");
+            } else if (registrovalid == 3) // error de placa
+            {
+                response.setContentType("text/plain");
+                response.getWriter().write("error placa");
             }
-            
-        }
-        catch(Throwable theException)
-        {
+
+        } catch (Throwable theException) {
             System.out.println(theException);
         }
     }

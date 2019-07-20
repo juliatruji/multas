@@ -51,7 +51,6 @@ public class VerMisMultas extends HttpServlet {
                 session.setAttribute("mismultas", datoscompletos);
                 response.sendRedirect("MisMultas.jsp");
             }
-        
             else
             {
                 //response.sendRedirect("JspInvalidLogin.jsp");

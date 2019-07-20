@@ -32,7 +32,7 @@ public class RegistroCodMultas extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try (PrintWriter oucodigomultat = response.getWriter()) {
             CodMultasDTO codigomulta = new CodMultasDTO();
             codigomulta.setCodfaltas(request.getParameter("codfalta"));
             codigomulta.setDescripcion(request.getParameter("descripcion"));
@@ -47,19 +47,20 @@ public class RegistroCodMultas extends HttpServlet {
             
             int registrovalid = CodMultasDAO.Register(codigomulta);
             
-            if(registrovalid==1)
+            if(registrovalid==1) // ok
             {
-                HttpSession session = request.getSession(true);
+                //HttpSession session = request.getSession(true);
+                //session.setAttribute("policia", policia);
+                //response.sendRedirect("Policia.jsp");
+                response.setContentType("text/plain");
+                response.getWriter().write("ok");
+            }
+            else if (registrovalid==2) // error de dni
+            {
+                response.setContentType("text/plain");
+                response.getWriter().write("error codigo");
+            }
 
-                session.setAttribute("codigomulta", codigomulta);
-                response.sendRedirect("CodMultas.jsp");
-            }
-            else
-            {
-               
-                response.sendRedirect("CodMultas.jsp");
-            }
-            
         }
         catch(Throwable theException)
         {
