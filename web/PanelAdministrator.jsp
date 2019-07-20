@@ -84,11 +84,12 @@
 							<a class="dropdown-item" href="/FormConductores.jsp"><i class="zmdi zmdi-plus-square"></i> Agregar Conductor</a>
 							<a class="dropdown-item" href="/FormCodMultas.jsp"><i class="zmdi zmdi-code"></i> Agregar Cód. de Multa</a>
 							<a class="dropdown-item" href="/FormVehiculos.jsp"><i class="zmdi zmdi-car"></i> Agregar Vehículo</a>
-<!--							<hr/>
-							<a class="dropdown-item" href="#"><i class="zmdi zmdi-accounts-alt"></i> Ver Policías</a>
-							<a class="dropdown-item" href="#"><i class="zmdi zmdi-accounts-alt"></i> Ver Conductores</a>
-							<a class="dropdown-item" href="#"><i class="zmdi zmdi-code"></i> Ver Cód. de Multas</a>
-							<a class="dropdown-item" href="#"><i class="zmdi zmdi-view-list-alt"></i> Ver Vehículos</a>-->
+							<hr/>
+							<a class="dropdown-item" href="/Reportes?id=policias"><i class="zmdi zmdi-accounts-alt"></i> Ver Policías </a>
+							<a class="dropdown-item" href="/Reportes?id=conductores"><i class="zmdi zmdi-accounts-alt"></i> Ver Conductores</a>
+							<a class="dropdown-item" href="/Reportes?id=codmultas"><i class="zmdi zmdi-code"></i> Ver Cód. de Multas</a>
+							<a class="dropdown-item" href="/Reportes?id=vehiculos"><i class="zmdi zmdi-view-list-alt"></i> Ver Vehículos</a>
+							<a class="dropdown-item" href="/Reportes?id=multas"><i class="zmdi zmdi-view-list-alt"></i> Ver Multas</a>
 							<hr/>
 							<a class="dropdown-item" href="/JspFormLogin.jsp"><i class="zmdi zmdi-sign-in"></i> Salir</a>
 						</div>
