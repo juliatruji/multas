@@ -111,7 +111,7 @@
 
                         <div class="wrap-input100 validate-input" data-validate="Escribe el codigo de la falta">
                             <input id="codfalta" class="input100" type="text" name="codfalta" placeholder="Escriba el codigo de la falta">
-                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                            <span class="focus-input100" data-placeholder="&#xf221;"></span>
                         </div>
                         <div class="form-group validate-input" data-validate="Escriba la descripcion">
 
@@ -145,11 +145,11 @@
                         <div class="doblecolumn">
                             <div class="wrap-input100 validate-input" data-validate="Escribe el monto UIT">
                                 <input id="montouit" class="input100" type="number" name="montouit" placeholder="Escribe el monto UIT">
-                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                                <span class="focus-input100" data-placeholder="&#xf3bd;"></span>
                             </div>
                             <div class="wrap-input100 validate-input" data-validate="Escribe los puntos">
                                 <input id="puntos" class="input100" type="number" name="puntos" placeholder="Escriba los puntos">
-                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                                <span class="focus-input100" data-placeholder="&#xf3be;"></span>
                             </div>
                         </div>
                         <div class="form-group validate-input" data-validate="Elige la Sancion">

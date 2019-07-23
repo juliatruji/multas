@@ -112,33 +112,33 @@
 
 					<div class="wrap-input100 validate-input" data-validate="Escribe los Nombres">
 						<input id="nombres" class="input100" type="text" name="nombres" placeholder="Escribe los Nombres">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+						<span class="focus-input100" data-placeholder="&#xf211;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="Escribe los Apellidos">
 						<input id="apellidos" class="input100" type="text" name="apellidos" placeholder="Escribe los Apellidos">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+						<span class="focus-input100" data-placeholder="&#xf22e;"></span>
 					</div>
 
 					<div class="doblecolumn">
 						<div class="wrap-input100 validate-input" data-validate="Escribe el DNI">
 							<input id="dni" class="input100" type="number" name="dni" min="1000000" max="99999999" placeholder="Escribe el DNI">
-							<span class="focus-input100" data-placeholder="&#xf207;"></span>
+							<span class="focus-input100" data-placeholder="&#xf225;"></span>
 						</div>
 
 						<div class="wrap-input100 validate-input" data-validate="Escribe el Código CIP">
 							<input id="codcip" class="input100" type="text" name="codcip" max="6" placeholder="Escribe el Código CIP">
-							<span class="focus-input100" data-placeholder="&#xf207;"></span>
+							<span class="focus-input100" data-placeholder="&#xf227;"></span>
 						</div>
 					</div>
 
                                         
                                         <div class="wrap-input100 validate-input" data-validate="Escribe el alias">
 						<input id="alias" class="input100" type="text" name="alias" placeholder="Escribe el alias">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+						<span class="focus-input100" data-placeholder="&#xf20e;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="Escribe el password">
 						<input id="password" class="input100" type="password" name="password" placeholder="Escribe el password">
-						<span class="focus-input100" data-placeholder="&#xf183;"></span>
+						<span class="focus-input100" data-placeholder="&#xf225;"></span>
 					</div>
                                         
                                         
