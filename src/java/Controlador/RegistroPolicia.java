@@ -53,6 +53,8 @@ public class RegistroPolicia extends HttpServlet {
                 ///HttpSession session = request.getSession(true);
                 //session.setAttribute("policia", policia);
                 //response.sendRedirect("Policia.jsp");
+                response.setContentType("text/plain");
+                response.getWriter().write("ok");
             }
             else if (registrovalid==2) // error de dni
             {

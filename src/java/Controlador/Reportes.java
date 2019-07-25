@@ -5,6 +5,7 @@ import Models.ConductorDTO;
 import Models.MisMultasDAO;
 import Models.MisMultasDTO;
 import Models.PoliciaDTO;
+import Models.VehiculosDTO;
 import Models.ReportesDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -72,11 +73,11 @@ public class Reportes extends HttpServlet {
                     response.getWriter().write("no hay codmultas registrados");
                 }
             } else if (identificador.equals("vehiculos")) {
-                PoliciaDTO[] policias = ReportesDAO.verpolicias();
-                if (policias != null) {
+               VehiculosDTO[] vehiculos = ReportesDAO.vervehiculos();
+                if (vehiculos != null) {
                     HttpSession session = request.getSession(true);
 
-                    session.setAttribute("vehiculos", policias);
+                    session.setAttribute("vehiculos", vehiculos);
                     response.sendRedirect("VerVehiculos.jsp");
                 } else {
                     //response.sendRedirect("JspInvalidLogin.jsp");
@@ -84,11 +85,11 @@ public class Reportes extends HttpServlet {
                     response.getWriter().write("no hay vehiculos registrados");
                 }
             } else if (identificador.equals("multas")) {
-                PoliciaDTO[] policias = ReportesDAO.verpolicias();
-                if (policias != null) {
+                MisMultasDTO[] multas = ReportesDAO.vermultas();
+                if (multas != null) {
                     HttpSession session = request.getSession(true);
 
-                    session.setAttribute("multas", policias);
+                    session.setAttribute("multas", multas);
                     response.sendRedirect("VerMultas.jsp");
                 } else {
                     //response.sendRedirect("JspInvalidLogin.jsp");

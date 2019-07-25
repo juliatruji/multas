@@ -166,15 +166,15 @@ public class ReportesDAO {
         return obj_codmultas;
     }
 
-    public static PoliciaDTO[] vervehiculos() {
+    public static VehiculosDTO[] vervehiculos() {
         int posicion = 0;
-        PoliciaDTO[] obj_policias = null;
+        VehiculosDTO[] obj_vehiculos = null;
         Connection cn = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         try {
 //            String sql = "SELECT multas.ubicacion, multas.lugar FROM multas,conductores WHERE multas.id_conductor=conductores.id_conductor AND conductores.dni='"+prm_mimulta.getDni()+"'";
-            String sql = "SELECT usuarios.nombre, usuarios.apellidos, usuarios.dni, policia.cod_cip, usuarios.alias FROM usuarios, policia WHERE usuarios.id_grupo_usuarios=2 AND policia.id_usuarios=usuarios.id_usuarios";
+            String sql = "SELECT vehiculo.modelo, vehiculo.color, vehiculo.placa, marca_vehiculo.marca, usuarios.dni FROM vehiculo, marca_vehiculo, usuarios,propietario WHERE vehiculo.id_marca_vehiculo=marca_vehiculo.id_marca_vehiculo AND propietario.id_vehiculo=vehiculo.id_vehiculo AND usuarios.id_usuarios=propietario.id_usuarios";
             cn = ConnectionManager.getConnection();
             ps = cn.prepareStatement(sql);
 
@@ -182,17 +182,17 @@ public class ReportesDAO {
 
             if (rs.last()) {
                 int tamanio = rs.getRow();
-                obj_policias = new PoliciaDTO[tamanio];
+                obj_vehiculos = new VehiculosDTO[tamanio];
                 rs.beforeFirst();
             }
             while (rs.next()) {
-                PoliciaDTO obj_poli = new PoliciaDTO();
-                obj_poli.setNombres(rs.getString("nombre"));
-                obj_poli.setApellidos(rs.getString("apellidos"));
-                obj_poli.setDni(rs.getString("dni"));
-                obj_poli.setCodcip(rs.getString("cod_cip"));
-                obj_poli.setAlias(rs.getString("alias"));
-                obj_policias[posicion] = obj_poli;
+                VehiculosDTO obj_vehicu = new VehiculosDTO();
+                obj_vehicu.setMarcatext(rs.getString("marca"));
+                obj_vehicu.setModelo(rs.getString("modelo"));
+                obj_vehicu.setColor(rs.getString("color"));
+                obj_vehicu.setPlaca(rs.getString("placa"));
+                obj_vehicu.setDni(rs.getString("dni"));
+                obj_vehiculos[posicion] = obj_vehicu;
                 posicion++;
             }
         } catch (Exception e) {
@@ -212,18 +212,18 @@ public class ReportesDAO {
                 e2.printStackTrace();
             }
         }
-        return obj_policias;
+        return obj_vehiculos;
     }
 
-    public static PoliciaDTO[] vermultas() {
+    public static MisMultasDTO[] vermultas() {
         int posicion = 0;
-        PoliciaDTO[] obj_policias = null;
+        MisMultasDTO[] obj_multas = null;
         Connection cn = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
         try {
 //            String sql = "SELECT multas.ubicacion, multas.lugar FROM multas,conductores WHERE multas.id_conductor=conductores.id_conductor AND conductores.dni='"+prm_mimulta.getDni()+"'";
-            String sql = "SELECT usuarios.nombre, usuarios.apellidos, usuarios.dni, policia.cod_cip, usuarios.alias FROM usuarios, policia WHERE usuarios.id_grupo_usuarios=2 AND policia.id_usuarios=usuarios.id_usuarios";
+            String sql = "select usuarios.id_usuarios, usuarios.nombre, usuarios.apellidos, usuarios.dni, conductor.nro_licencia, conductor.id_conductor,multas.estado, multas.fecha, multas.obs_conductor, multas.obs_policia, codigo_multa.descripcion, codigo_multa.cod_falta,codigo_multa.clasificacion, codigo_multa.monto_uit, sancion.descripcion_sancion, medida_preventiva.descripcion_medida_preventiva, ubicacion.departamento, multas.direccion, vehiculo.placa,policia.cod_cip, UP.nombre AS nombre_policia, UP.apellidos AS apellido_policia from usuarios LEFT JOIN conductor on conductor.id_usuarios = usuarios.id_usuarios LEFT JOIN multas on multas.id_conductor = conductor.id_conductor LEFT JOIN policia on policia.id_policia = multas.id_policia LEFT JOIN `usuarios` UP on UP.id_usuarios = policia.id_usuarios LEFT JOIN codigo_multa on codigo_multa.id_codigo_multa = multas.id_codigo_multa LEFT JOIN sancion on sancion.id_sancion = multas.id_codigo_multa LEFT JOIN medida_preventiva on medida_preventiva.id_medida_preventiva = multas.id_codigo_multa LEFT JOIN ubicacion on ubicacion.id_ubicacion = multas.id_ubicacion LEFT JOIN vehiculo on vehiculo.id_vehiculo = multas.id_vehiculo WHERE usuarios.id_grupo_usuarios=3 AND multas.estado!='NULL';";
             cn = ConnectionManager.getConnection();
             ps = cn.prepareStatement(sql);
 
@@ -231,17 +231,35 @@ public class ReportesDAO {
 
             if (rs.last()) {
                 int tamanio = rs.getRow();
-                obj_policias = new PoliciaDTO[tamanio];
+                obj_multas = new MisMultasDTO[tamanio];
                 rs.beforeFirst();
             }
             while (rs.next()) {
-                PoliciaDTO obj_poli = new PoliciaDTO();
-                obj_poli.setNombres(rs.getString("nombre"));
-                obj_poli.setApellidos(rs.getString("apellidos"));
-                obj_poli.setDni(rs.getString("dni"));
-                obj_poli.setCodcip(rs.getString("cod_cip"));
-                obj_poli.setAlias(rs.getString("alias"));
-                obj_policias[posicion] = obj_poli;
+                MisMultasDTO obj_mul = new MisMultasDTO();
+
+                obj_mul.setId_usuarios(rs.getInt("id_usuarios"));
+                obj_mul.setNombre(rs.getString("nombre"));
+                obj_mul.setApellidos(rs.getString("apellidos"));
+                obj_mul.setDni(rs.getString("dni"));
+                obj_mul.setNro_licencia(rs.getString("nro_licencia"));
+                obj_mul.setId_conductor(rs.getInt("id_conductor"));
+                obj_mul.setEstado(rs.getString("estado"));
+                obj_mul.setFecha(rs.getString("fecha"));
+                obj_mul.setObs_conductor(rs.getString("obs_conductor"));
+                obj_mul.setObs_polocia(rs.getString("obs_policia"));
+                obj_mul.setDescripcion(rs.getString("descripcion"));
+                obj_mul.setCod_falta(rs.getString("cod_falta"));
+                obj_mul.setClasificacion(rs.getString("clasificacion"));
+                obj_mul.setMonto_uit(rs.getFloat("monto_uit"));
+                obj_mul.setDescripcion_sancion(rs.getString("descripcion_sancion"));
+                obj_mul.setDescripcion_medida_preventiva(rs.getString("descripcion_medida_preventiva"));
+                obj_mul.setDepartamento(rs.getString("departamento"));
+                obj_mul.setDireccion(rs.getString("direccion"));
+                obj_mul.setPlaca(rs.getString("placa"));
+                obj_mul.setCod_cip(rs.getString("cod_cip"));
+                obj_mul.setNombre_policia(rs.getString("nombre_policia"));
+                obj_mul.setApellido_policia(rs.getString("apellido_policia"));
+                obj_multas[posicion] = obj_mul;
                 posicion++;
             }
         } catch (Exception e) {
@@ -261,7 +279,7 @@ public class ReportesDAO {
                 e2.printStackTrace();
             }
         }
-        return obj_policias;
+        return obj_multas;
     }
 
 }

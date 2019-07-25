@@ -3,16 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/nuevomultas/web/Multa.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/nuevomultas/src/java/Controlador/RegistroMultas.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/nuevomultas/web/PanelPolicia.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/nuevomultas/src/java/Models/MultasDAO.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/nuevomultas/src/java/Models/PoliciaDAO.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/nuevomultas/web/Conductor.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/nuevomultas/web/PanelAdministrator.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/nuevomultas/web/JspFormLogin.jsp</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/nuevomultas/src/java/Controlador/RegistroConductor.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/nuevomultas/web/FormMultas.jsp</file>
+            <file>file:/D:/UTP/Ciclo%205%206/Desarrollo%20Web%20Integrado/Trabajo%20Final/nuevomultas/web/FormPolicias.jsp</file>
+            <file>file:/D:/UTP/Ciclo%205%206/Desarrollo%20Web%20Integrado/Trabajo%20Final/nuevomultas/web/PanelAdministrator.jsp</file>
+            <file>file:/D:/UTP/Ciclo%205%206/Desarrollo%20Web%20Integrado/Trabajo%20Final/nuevomultas/web/VerPolicias.jsp</file>
+            <file>file:/D:/UTP/Ciclo%205%206/Desarrollo%20Web%20Integrado/Trabajo%20Final/nuevomultas/src/java/Models/PoliciaDAO.java</file>
+            <file>file:/D:/UTP/Ciclo%205%206/Desarrollo%20Web%20Integrado/Trabajo%20Final/nuevomultas/web/VerMultas.jsp</file>
+            <file>file:/D:/UTP/Ciclo%205%206/Desarrollo%20Web%20Integrado/Trabajo%20Final/nuevomultas/src/java/Controlador/RegistroVehiculos.java</file>
+            <file>file:/D:/UTP/Ciclo%205%206/Desarrollo%20Web%20Integrado/Trabajo%20Final/nuevomultas/web/FormCodMultas.jsp</file>
+            <file>file:/D:/UTP/Ciclo%205%206/Desarrollo%20Web%20Integrado/Trabajo%20Final/nuevomultas/web/VerVehiculos.jsp</file>
+            <file>file:/D:/UTP/Ciclo%205%206/Desarrollo%20Web%20Integrado/Trabajo%20Final/nuevomultas/src/java/Models/ReportesDAO.java</file>
+            <file>file:/D:/UTP/Ciclo%205%206/Desarrollo%20Web%20Integrado/Trabajo%20Final/nuevomultas/src/java/Models/VehiculosDTO.java</file>
+            <file>file:/D:/UTP/Ciclo%205%206/Desarrollo%20Web%20Integrado/Trabajo%20Final/nuevomultas/src/java/Controlador/Reportes.java</file>
         </group>
     </open-files>
 </project-private>

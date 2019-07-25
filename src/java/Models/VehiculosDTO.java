@@ -12,8 +12,17 @@ package Models;
 public class VehiculosDTO
 {
     
-    private String modelo, color, placa,dni;
+    private String modelo, color, placa,dni,marcatext;
+
+    public String getMarcatext() {
+        return marcatext;
+    }
+
+    public void setMarcatext(String marcatext) {
+        this.marcatext = marcatext;
+    }
     private int marca;
+    
 
     public int getMarca() {
         return marca;

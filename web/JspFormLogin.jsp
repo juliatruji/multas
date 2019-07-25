@@ -1,8 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    session.invalidate();
-%>
-
 <!DOCTYPE html>
 <html lang="es">
 

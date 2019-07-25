@@ -79,13 +79,10 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="/FormMultas.jsp"><i class="zmdi zmdi-plus-square"></i> Agregar Multa</a>
 
-                                <!--							<hr/>
-                                                                                        <a class="dropdown-item" href="#"><i class="zmdi zmdi-accounts-alt"></i> Ver Policías</a>
-                                                                                        <a class="dropdown-item" href="#"><i class="zmdi zmdi-accounts-alt"></i> Ver Conductores</a>
-                                                                                        <a class="dropdown-item" href="#"><i class="zmdi zmdi-code"></i> Ver Cód. de Multas</a>
-                                                                                        <a class="dropdown-item" href="#"><i class="zmdi zmdi-view-list-alt"></i> Ver Vehículos</a>-->
+
+
                                 <hr/>
-                                <a class="dropdown-item" href="/JspFormLogin.jsp"><i class="zmdi zmdi-sign-in"></i> Salir</a>
+                                <a class="dropdown-item" href="/exit.jsp"><i class="zmdi zmdi-sign-in"></i> Salir</a>
                             </div>
                         </div>
 
@@ -347,8 +344,7 @@
                                                         loader: false,
                                                         position: 'top-right'
                                                     })
-                                                }
-                                                else {
+                                                } else {
                                                     $.toast({
                                                         heading: 'Ok',
                                                         text: 'Multa registrado correctamente',

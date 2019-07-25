@@ -91,7 +91,7 @@
 							<a class="dropdown-item" href="/Reportes?id=vehiculos"><i class="zmdi zmdi-view-list-alt"></i> Ver Vehículos</a>
 							<a class="dropdown-item" href="/Reportes?id=multas"><i class="zmdi zmdi-view-list-alt"></i> Ver Multas</a>
 							<hr/>
-							<a class="dropdown-item" href="/JspFormLogin.jsp"><i class="zmdi zmdi-sign-in"></i> Salir</a>
+							<a class="dropdown-item" href="/exit.jsp"><i class="zmdi zmdi-sign-in"></i> Salir</a>
 						</div>
 					</div>
 

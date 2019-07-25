@@ -139,7 +139,7 @@
                             </div>
                         </div>
                         <span class="login100-form-title p-b-18 p-t-0">
-                            Deuda Total S/<% out.println(sumatoria); %>
+                            Deuda Total S/<% out.println((sumatoria*4200)/100); %>
                         </span>
 
                         <%

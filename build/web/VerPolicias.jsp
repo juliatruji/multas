@@ -21,7 +21,7 @@
 %>
 <%
     PoliciaDTO[] obj_policias = (PoliciaDTO[]) session.getAttribute("policias");
-   
+
 %>
 <!DOCTYPE html>
 <html lang="es">
@@ -73,32 +73,33 @@
 
                     </div>
 
-				<div class="menurighttop">
+                    <div class="menurighttop">
 
-					<div class="dropdown show">
-                                            <a href="PanelAdministrator.jsp" class="btn btn-outline-light">&lt;&lt; Volver</a>
-						<a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<i class="zmdi zmdi-account"></i> <%= nombreadmin %>
-						</a>
+                        <div class="dropdown show">
+                            <a href="PanelAdministrator.jsp" class="btn btn-outline-light">&lt;&lt; Volver</a>
+                            <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="zmdi zmdi-account"></i> <%= nombreadmin%>
+                            </a>
 
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<a class="dropdown-item" href="/FormPolicias.jsp"><i class="zmdi zmdi-plus-square"></i> Agregar Policía</a>
-							<a class="dropdown-item" href="/FormConductores.jsp"><i class="zmdi zmdi-plus-square"></i> Agregar Conductor</a>
-							<a class="dropdown-item" href="/FormCodMultas.jsp"><i class="zmdi zmdi-code"></i> Agregar Cód. de Multa</a>
-							<a class="dropdown-item" href="/FormVehiculos.jsp"><i class="zmdi zmdi-car"></i> Agregar Vehículo</a>
-							<hr/>
-							<a class="dropdown-item" href="#"><i class="zmdi zmdi-accounts-alt"></i> Ver Policías</a>
-							<a class="dropdown-item" href="#"><i class="zmdi zmdi-accounts-alt"></i> Ver Conductores</a>
-							<a class="dropdown-item" href="#"><i class="zmdi zmdi-code"></i> Ver Cód. de Multas</a>
-							<a class="dropdown-item" href="#"><i class="zmdi zmdi-view-list-alt"></i> Ver Vehículos</a>
-							<hr/>
-							<a class="dropdown-item" href="/JspFormLogin.jsp"><i class="zmdi zmdi-sign-in"></i> Salir</a>
-						</div>
-					</div>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="/FormPolicias.jsp"><i class="zmdi zmdi-plus-square"></i> Agregar Policía</a>
+                                <a class="dropdown-item" href="/FormConductores.jsp"><i class="zmdi zmdi-plus-square"></i> Agregar Conductor</a>
+                                <a class="dropdown-item" href="/FormCodMultas.jsp"><i class="zmdi zmdi-code"></i> Agregar Cód. de Multa</a>
+                                <a class="dropdown-item" href="/FormVehiculos.jsp"><i class="zmdi zmdi-car"></i> Agregar Vehículo</a>
+                                <hr/>
+                                <a class="dropdown-item" href="/Reportes?id=policias"><i class="zmdi zmdi-accounts-alt"></i> Ver Policías </a>
+                                <a class="dropdown-item" href="/Reportes?id=conductores"><i class="zmdi zmdi-accounts-alt"></i> Ver Conductores</a>
+                                <a class="dropdown-item" href="/Reportes?id=codmultas"><i class="zmdi zmdi-code"></i> Ver Cód. de Multas</a>
+                                <a class="dropdown-item" href="/Reportes?id=vehiculos"><i class="zmdi zmdi-view-list-alt"></i> Ver Vehículos</a>
+                                <a class="dropdown-item" href="/Reportes?id=multas"><i class="zmdi zmdi-view-list-alt"></i> Ver Multas</a>
+                                <hr/>
+                                <a class="dropdown-item" href="/exit.jsp"><i class="zmdi zmdi-sign-in"></i> Salir</a>
+                            </div>
+                        </div>
 
 
-				</div>
+                    </div>
                 </nav>
             </div>
 
@@ -111,6 +112,8 @@
 
                     <style> .wrap-login100{width: 100%}</style>
                     <form class="login100-form validate-form">
+                        <span class="login100-form-title p-b-18 p-t-0">Lista de Policias
+                        </span>
                         <div class="container-fluid">
                             <div class="row">
                                 <table class="table table-striped table-hover table-dark text-center">
